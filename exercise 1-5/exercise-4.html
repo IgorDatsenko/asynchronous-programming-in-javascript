@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+
+<script>
+  "use strict";
+
+  Array.prototype.map = function(projectionFunction) {
+    let results = [];
+    this.forEach(x => {
+      results.push(projectionFunction(x));
+    });
+
+    return results;
+  };
+
+  // ------------ INSERT CODE HERE! ----------------------------
+  // Apply the projectionFunction to each item in the array and add
+  // each result to the results array.
+  // Note: you can add items to an array with the push() method.
+  // ------------ INSERT CODE HERE! ----------------------------
+
+  console.log(JSON.stringify([1,2,3].map(function(x) { return x + 2; })));
+
+
+
+</script>
+
+</body>
+</html>
