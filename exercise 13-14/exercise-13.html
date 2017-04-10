@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+
+<script>
+  "use strict";
+
+  Array.prototype.concatAll = function () {
+    let result = [];
+    this.forEach( x => {
+      [].push.apply(result, x);
+    });
+    return result;
+  };
+
+  Array.prototype.concatMap = function(callBack) {
+    return this.
+    map( x => callBack(x)).
+    // apply the concatAll function to flatten the two-dimensional array
+    concatAll();
+  };
+
+   var spanishFrenchEnglishWords = [ ["cero","rien","zero"], ["uno","un","one"], ["dos","deux","two"] ];
+   // collect all the words for each number, in every language, in a single, flat list
+   var allWords = [0,1,2].
+   concatMap( y => spanishFrenchEnglishWords[y]);
+
+
+  console.log(JSON.stringify(allWords) === '["cero","rien","zero","uno","un","one","dos","deux","two"]');
+
+
+</script>
+
+</body>
+</html>
