@@ -20,7 +20,7 @@ document.addEventListener('load', () => {
   };
 
   Array.prototype.reduce = function(combiner, initialValue) {
-    var counter,
+    let counter,
         accumulatedValue;
 
     // If the array is empty, do nothing
@@ -45,7 +45,7 @@ document.addEventListener('load', () => {
       // the previous computation back into the combiner function until
       // we've exhausted the entire array and are left with only one function.
       while(counter < this.length) {
-        accumulatedValue = combiner(accumulatedValue, this[counter])
+        accumulatedValue = combiner(accumulatedValue, this[counter]);
         counter++;
       }
 
