@@ -95,10 +95,16 @@
     // ];
 
     return movieLists.concatMap(function (movieList) {
-      return movieList.videos.
-        map(movie => movie.
-          filter(movieboxarts)
-      )
+      return movieList.videos.concatMap(function (video) {
+        return video.boxarts.filter((boxart) => boxart.width ===150)
+            .map((boxart) => {
+              return {
+                id: video.id,
+                title: video.title,
+                boxart: boxart.url
+              }
+            });
+      })
     }); // Complete this expression!
 
   }
